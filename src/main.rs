@@ -15,7 +15,7 @@
 // along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 use clap::{crate_authors, crate_version, App, Arg};
-use std::io::{stdin, BufRead, BufReader};
+use std::io::{stdin, Read};
 use x11_clipboard::Clipboard;
 
 fn main() {
@@ -35,15 +35,8 @@ fn main() {
         None => panic!("invalid arguments"),
     };
 
-    let mut data = String::new();
-    let reader = BufReader::new(stdin());
-    reader
-        .lines()
-        .map(|d| {
-            data.push_str(&d.unwrap());
-            data.push('\n')
-        })
-        .count();
+    let mut data = Vec::new();
+    stdin().read_to_end(&mut data).expect("error reading from stdin");
 
     let clipboard = Clipboard::new().unwrap();
     let name = format!("FK{}", pid);
