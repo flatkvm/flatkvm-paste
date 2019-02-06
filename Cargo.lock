@@ -129,7 +129,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 [[package]]
 name = "x11-clipboard"
 version = "0.3.1"
-source = "git+https://github.com/flatkvm/x11-clipboard#e6b8ae2b710304f0da5b4c02e67647cb824c9ea7"
+source = "git+https://github.com/flatkvm/x11-clipboard#6c7cbc006fb86fa2e2c7a8da2345115606fe3f6b"
 dependencies = [
  "xcb 0.8.2 (git+https://github.com/flatkvm/rust-xcb)",
 ]
